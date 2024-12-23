@@ -43,7 +43,3 @@ chmod +x start_node.sh || print_error "Gagal memberikan izin eksekusi pada scrip
 # Menjalankan node secara langsung
 print_header "Menjalankan Node Cyberfly"
 ./start_node.sh k:$kadena_wallet_address $node_priv_key || print_error "Gagal menjalankan Cyberfly Node!"
-
-# Pesan akhir
-print_success "Node Cyberfly berhasil dijalankan!"
-print_success "Pastikan Anda mencadangkan Node Private Key Anda: $node_priv_key"
