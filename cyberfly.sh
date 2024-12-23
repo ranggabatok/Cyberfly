@@ -28,18 +28,14 @@ if [ -z "$kadena_wallet_address" ] || [ -z "$node_priv_key" ]; then
 fi
 
 # Clone repository Cyberfly
-print_header "Mengunduh Repository Cyberfly Node"
 git clone https://github.com/cyberfly-io/cyberfly-node-docker.git || print_error "Gagal mengunduh repository Cyberfly. Periksa koneksi internet Anda!"
 cd cyberfly-node-docker || print_error "Gagal masuk ke direktori repository Cyberfly!"
 
 # Update repository Cyberfly
-print_header "Memperbarui Repository Cyberfly Node"
 git pull || print_error "Gagal memperbarui repository Cyberfly!"
 
 # Memberikan izin eksekusi pada script
-print_header "Menyiapkan Script untuk Menjalankan Node"
 chmod +x start_node.sh || print_error "Gagal memberikan izin eksekusi pada script!"
 
 # Menjalankan node secara langsung
-print_header "Menjalankan Node Cyberfly"
 ./start_node.sh k:$kadena_wallet_address $node_priv_key || print_error "Gagal menjalankan Cyberfly Node!"
